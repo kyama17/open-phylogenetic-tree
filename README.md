@@ -55,19 +55,24 @@ This project can be deployed as a static site to Cloudflare Pages.
 
 -   [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) (or [Yarn](https://yarnpkg.com/)) installed.
 -   A [Cloudflare account](https://dash.cloudflare.com/sign-up).
--   [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/get-started/) installed and configured. You can install it globally or use `npx`.
+-   [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/get-started/) (version 4 or later recommended) installed and configured.
 
 ### Deployment Steps
 
-1.  **Install dependencies:**
-    If you haven't already, install the `wrangler` CLI. If you are using the `package.json` provided, you can install it as a dev dependency:
+1.  **Install dependencies (including Wrangler v4):**
+    This project uses `wrangler` for deployment. It's listed as a dev dependency in `package.json`.
+    To install `wrangler` (version `^4.0.0` or later) and other potential dependencies, run:
     ```bash
     npm install
     # or
     yarn install
     ```
+    If you want to install `wrangler` globally or update an existing global installation, you can run:
+    ```bash
+    npm install --global wrangler@4
+    ```
 
-2.  **Login to Cloudflare (if using Wrangler CLI directly for the first time):**
+2.  **Login to Cloudflare (if using Wrangler CLI directly for the first time or session expired):**
     ```bash
     npx wrangler login
     ```
@@ -79,14 +84,19 @@ This project can be deployed as a static site to Cloudflare Pages.
     # or
     yarn deploy
     ```
-    This command utilizes `wrangler pages deploy .` to deploy the contents of the current directory.
+    This command executes `npx wrangler pages deploy .`, deploying the contents of the current directory to Cloudflare Pages.
 
-    Alternatively, you can run the Wrangler command directly:
+    Alternatively, if you have `wrangler` installed globally or prefer to run it directly:
     ```bash
     npx wrangler pages deploy .
     ```
 
 ### Configuration
 
--   **`wrangler.toml`**: This file contains the configuration for Wrangler, including the project name and compatibility date. The `pages_build_output_dir` is set to `"."` because all static assets (`index.html`, `style.css`, `app.js`) are in the root directory.
--   **`package.json`**: Includes a `deploy` script that simplifies the deployment process.
+-   **`wrangler.toml`**: This file contains the configuration for Wrangler.
+    -   `name`: Specifies the project name on Cloudflare.
+    -   `compatibility_date`: Ensures consistent behavior across Wrangler versions.
+    -   `pages_build_output_dir = "."`: Tells Wrangler that the static assets to be deployed are in the root directory of the project. This is the standard way to specify the assets directory for Cloudflare Pages in recent Wrangler versions.
+-   **`package.json`**:
+    -   Includes `wrangler` (version `^4.0.0`) as a dev dependency.
+    -   Defines a `deploy` script (`npx wrangler pages deploy .`) for easy deployment.
