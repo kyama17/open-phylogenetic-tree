@@ -10,6 +10,23 @@ function setup() {
     dinos.push(new Dino(100, 200, 'Organism A'));
     dinos.push(new Dino(300, 400, 'Organism B'));
     dinos.push(new Dino(500, 250, 'Organism C'));
+
+    // Get references to the input field and button
+    const organismNameInput = select('#organismName');
+    const addOrganismButton = select('#addOrganismButton');
+
+    // Add event listener to the button
+    addOrganismButton.mousePressed(addOrganism);
+}
+
+function addOrganism() {
+    const name = select('#organismName').value();
+    if (name) {
+        // Add new dino to a somewhat random position near the center
+        const newDino = new Dino(width / 2 + random(-50, 50), height / 2 + random(-50, 50), name);
+        dinos.push(newDino);
+        select('#organismName').value(''); // Clear the input field
+    }
 }
 
 function draw() {
