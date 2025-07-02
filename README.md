@@ -84,11 +84,11 @@ This project can be deployed as a static site to Cloudflare Pages.
     # or
     yarn deploy
     ```
-    This command executes `npx wrangler pages deploy .`, deploying the contents of the current directory to Cloudflare Pages.
+    This command executes `wrangler pages deploy .` (utilizing the locally installed Wrangler from `devDependencies`), deploying the contents of the current directory to Cloudflare Pages.
 
     Alternatively, if you have `wrangler` installed globally or prefer to run it directly:
     ```bash
-    npx wrangler pages deploy .
+    npx wrangler pages deploy . # or simply `wrangler pages deploy .` if wrangler is in your PATH
     ```
 
 ### Configuration
@@ -99,4 +99,4 @@ This project can be deployed as a static site to Cloudflare Pages.
     -   `pages_build_output_dir = "."`: Tells Wrangler that the static assets to be deployed are in the root directory of the project. This is the standard way to specify the assets directory for Cloudflare Pages in recent Wrangler versions.
 -   **`package.json`**:
     -   Includes `wrangler` (version `^4.0.0`) as a dev dependency.
-    -   Defines a `deploy` script (`npx wrangler pages deploy .`) for easy deployment.
+    -   Defines a `deploy` script (`wrangler pages deploy .`) for easy deployment. This leverages the `wrangler` binary installed as part of the project's dependencies.
