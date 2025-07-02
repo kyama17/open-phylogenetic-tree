@@ -46,3 +46,47 @@ A web application that allows children to create their own original lineage tree
         -   Implement functionality to save the tree as an image and to save the application state.
     6.  **Improve Design:** (Ongoing)
         -   Replace the basic circles and lines with illustration-based designs.
+
+## 4. Deployment to Cloudflare Pages
+
+This project can be deployed as a static site to Cloudflare Pages.
+
+### Prerequisites
+
+-   [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) (or [Yarn](https://yarnpkg.com/)) installed.
+-   A [Cloudflare account](https://dash.cloudflare.com/sign-up).
+-   [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/get-started/) installed and configured. You can install it globally or use `npx`.
+
+### Deployment Steps
+
+1.  **Install dependencies:**
+    If you haven't already, install the `wrangler` CLI. If you are using the `package.json` provided, you can install it as a dev dependency:
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
+
+2.  **Login to Cloudflare (if using Wrangler CLI directly for the first time):**
+    ```bash
+    npx wrangler login
+    ```
+
+3.  **Deploy the application:**
+    You can deploy the application using the npm script defined in `package.json`:
+    ```bash
+    npm run deploy
+    # or
+    yarn deploy
+    ```
+    This command utilizes `wrangler pages deploy .` to deploy the contents of the current directory.
+
+    Alternatively, you can run the Wrangler command directly:
+    ```bash
+    npx wrangler pages deploy .
+    ```
+
+### Configuration
+
+-   **`wrangler.toml`**: This file contains the configuration for Wrangler, including the project name and compatibility date. The `pages_build_output_dir` is set to `"."` because all static assets (`index.html`, `style.css`, `app.js`) are in the root directory.
+-   **`package.json`**: Includes a `deploy` script that simplifies the deployment process.

@@ -1,0 +1,11 @@
+{
+  "name": "my-own-organism-lineage-maker",
+  "version": "1.0.0",
+  "description": "A web application that allows children to create their own original lineage trees of organisms.",
+  "scripts": {
+    "deploy": "npx wrangler pages deploy ."
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}
