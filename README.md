@@ -1,49 +1,48 @@
-# じぶんだけの恐竜系統樹メーカー (My Own Dino Lineage Maker)
+# My Own Organism Lineage Maker
 
-## 1. アプリのコンセプト
+## 1. App Concept
 
-子供たちが、お絵かきのような直感的な操作で、自分だけのオリジナルの恐竜・古代生物の系統樹を作成して楽しめるWebアプリケーション。
+A web application that allows children to create their own original lineage trees of organisms, including ancient and extinct creatures, through an intuitive, drawing-like interface.
 
-- **ターゲットユーザー:** 恐竜や絶滅した生物に興味を持つ子供たち
-- **目的:** 創造性や知的好奇心を育むこと。オリジナルの系統樹作りを通して、生物の進化に親しみを持ってもらう。
+- **Target Audience:** Children interested in organisms, dinosaurs, and extinct life.
+- **Objective:** To foster creativity and intellectual curiosity. To help users become familiar with the concept of evolution by creating their own phylogenetic trees.
 
-## 2. 要件定義
+## 2. Requirements
 
-### 機能要件
+### Functional Requirements
 
-1.  **恐竜の登録機能:**
-    -   ユーザーが恐竜の名前を入力する。
-    -   入力された名前に基づき、Web上の情報源から「生きていた時代」「食性」などの基本情報を自動で取得する。（将来的な実装）
-    -   取得した情報と、システムが生成した可愛いイラストを使って、新しい恐竜オブジェクトをキャンバス上に追加する。
-2.  **系統樹の作成機能:**
-    -   キャンバス上の恐竜をドラッグ＆ドロップで自由に配置できる。
-    -   特定の操作（例: Shiftキーを押しながらクリック）で、複数の恐竜を線で結び、関係性を示すことができる。
-3.  **保存・出力機能:**
-    -   作成した系統樹を画像ファイル（PNG/JPEGなど）としてダウンロードできる。
-    -   作成途中の状態をブラウザ（またはサーバー）に保存し、後から編集を再開できる。
+1.  **Organism Registration:**
+    -   The user inputs the name of an organism.
+    -   (Future Implementation) The application will automatically fetch basic information such as the geological era, diet, etc., from web sources based on the input name.
+    -   A new organism object is added to the canvas with the fetched information and a cute, system-generated illustration.
+2.  **Lineage Tree Creation:**
+    -   Users can freely arrange organisms on the canvas by dragging and dropping them.
+    -   Users can connect multiple organisms with lines to represent relationships using a specific action (e.g., holding Shift while clicking).
+3.  **Save/Export Feature:**
+    -   The created lineage tree can be downloaded as an image file (e.g., PNG, JPEG).
+    -   The work-in-progress can be saved in the browser (or on a server) to be resumed later.
 
-### 非機能要件
+### Non-Functional Requirements
 
--   **デザイン:** 子供が楽しめるよう、カラフルで可愛い、親しみやすいUIデザインを採用する。
--   **操作性:** 専門知識がなくても、直感的・感覚的に操作できること。
+-   **Design:** A colorful, cute, and friendly UI design that is enjoyable for children.
+-   **Usability:** The application should be intuitive and easy to use without requiring specialized knowledge.
 
-## 3. 実装方針・技術スタック
+## 3. Implementation Plan & Tech Stack
 
--   **フロントエンド:** HTML, CSS, JavaScript
--   **描画ライブラリ:** [p5.js](https://p5js.org/) を利用し、インタラクティブな描画を実現する。
--   **開発ステップ:**
-    1.  **プロトタイプ作成 (完了):**
-        -   固定のオブジェクト（円）をキャンバスに表示。
-        -   オブジェクトのドラッグ＆ドロップ機能。
-        -   オブジェクト間の線描画機能。
-    2.  **UIの追加 (次ステップ):**
-        -   恐竜名を入力するテキストボックスと「追加」ボタンを設置する。
-    3.  **動的なオブジェクト追加機能:**
-        -   ボタンが押されたら、入力された名前で新しい恐竜オブジェクトをキャンバスに追加する。
-    4.  **情報取得機能の実装:** (将来)
-        -   外部APIと連携し、恐竜の情報を自動取得する。
-    5.  **保存機能の実装:** (将来)
-        -   画像保存、状態保存の機能を実装する。
-    6.  **デザインの改善:** (随時)
-        -   円や単純な線から、イラストベースのデザインに置き換えていく。
-
+-   **Frontend:** HTML, CSS, JavaScript
+-   **Graphics Library:** Use [p5.js](https://p5js.org/) to create an interactive drawing experience.
+-   **Development Steps:**
+    1.  **Create Prototype (Completed):**
+        -   Display fixed objects (circles) on the canvas.
+        -   Implement drag-and-drop functionality for the objects.
+        -   Implement line-drawing functionality between objects.
+    2.  **Add UI Elements (Next Step):**
+        -   Add a text input box for the organism's name and an "Add" button.
+    3.  **Implement Dynamic Object Addition:**
+        -   When the button is clicked, add a new organism object to the canvas with the specified name.
+    4.  **Implement Information Fetching:** (Future)
+        -   Integrate with an external API to automatically retrieve organism data.
+    5.  **Implement Save Feature:** (Future)
+        -   Implement functionality to save the tree as an image and to save the application state.
+    6.  **Improve Design:** (Ongoing)
+        -   Replace the basic circles and lines with illustration-based designs.

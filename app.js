@@ -7,9 +7,9 @@ function setup() {
     canvas.parent('canvas-container'); // Attach the canvas to the container
 
     // Create some sample dinos
-    dinos.push(new Dino(100, 200, 'T-Rex'));
-    dinos.push(new Dino(300, 400, 'Stegosaurus'));
-    dinos.push(new Dino(500, 250, 'Triceratops'));
+    dinos.push(new Dino(100, 200, 'Organism A'));
+    dinos.push(new Dino(300, 400, 'Organism B'));
+    dinos.push(new Dino(500, 250, 'Organism C'));
 }
 
 function draw() {
