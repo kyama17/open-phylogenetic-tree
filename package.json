@@ -1,0 +1,26 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "A web application that allows children to create their own original lineage trees of organisms, including ancient and extinct creatures, through an intuitive, drawing-like interface.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyama17/open-phylogenetic-tree.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/kyama17/open-phylogenetic-tree/issues"
+  },
+  "homepage": "https://github.com/kyama17/open-phylogenetic-tree#readme",
+  "devDependencies": {
+    "@cloudflare/kv-asset-handler": "^0.4.0",
+    "@cloudflare/workers-types": "^4.20250703.0",
+    "wrangler": "^4.23.0"
+  }
+}
