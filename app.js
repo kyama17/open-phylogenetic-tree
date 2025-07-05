@@ -23,7 +23,7 @@ function addOrganism() {
     const nameInput = select('#organismName');
     const name = nameInput.value().trim();
     const minNameLength = 2;
-    const dinoRadius = 40; // Assuming Dino.radius is 40, as defined in the class
+    const dinoRadius = Dino.radius; // Use static property from Dino class
 
     if (!name) {
         alert('生き物の名前を入力してください。');
@@ -116,11 +116,13 @@ function mouseReleased() {
 }
 
 class Dino {
+    static radius = 40;
+
     constructor(x, y, name) {
         this.x = x;
         this.y = y;
         this.name = name;
-        this.radius = 40;
+        this.radius = Dino.radius; // Use static property
         this.connections = [];
     }
 
