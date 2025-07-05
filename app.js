@@ -41,19 +41,15 @@ function addOrganism() {
     }
 
     // Calculate position, ensuring it's within canvas bounds, considering the dino's radius
-    let x = random(dinoRadius, width - dinoRadius);
-    let y = random(dinoRadius, height - dinoRadius);
-
-    // Ensure the initial random position is somewhat centered if possible, then clamp
-    // This is a simple approach; more sophisticated placement could be added later.
+    // The initial random position is calculated to be somewhat centered.
     const centerAreaFactor = 0.3; // Try to place within the central 30% of canvas
     const centerX = width / 2;
     const centerY = height / 2;
     const rangeX = (width * centerAreaFactor) / 2;
     const rangeY = (height * centerAreaFactor) / 2;
 
-    x = random(centerX - rangeX, centerX + rangeX);
-    y = random(centerY - rangeY, centerY + rangeY);
+    let x = random(centerX - rangeX, centerX + rangeX);
+    let y = random(centerY - rangeY, centerY + rangeY);
 
     // Clamp values to be within canvas boundaries, accounting for radius
     x = constrain(x, dinoRadius, width - dinoRadius);
