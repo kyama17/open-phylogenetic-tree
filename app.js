@@ -102,8 +102,10 @@ function mousePressed() {
 
 function mouseDragged() {
     if (selectedDino) {
-        selectedDino.x = mouseX;
-        selectedDino.y = mouseY;
+        // Constrain the dino's position within the canvas boundaries
+        const dinoRadius = selectedDino.radius;
+        selectedDino.x = constrain(mouseX, dinoRadius, width - dinoRadius);
+        selectedDino.y = constrain(mouseY, dinoRadius, height - dinoRadius);
     }
 }
 
