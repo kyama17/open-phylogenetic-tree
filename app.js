@@ -20,13 +20,49 @@ function setup() {
 }
 
 function addOrganism() {
-    const name = select('#organismName').value();
-    if (name) {
-        // Add new dino to a somewhat random position near the center
-        const newDino = new Dino(width / 2 + random(-50, 50), height / 2 + random(-50, 50), name);
-        dinos.push(newDino);
-        select('#organismName').value(''); // Clear the input field
+    const nameInput = select('#organismName');
+    const name = nameInput.value().trim();
+    const minNameLength = 2;
+    const dinoRadius = 40; // Assuming Dino.radius is 40, as defined in the class
+
+    if (!name) {
+        alert('生き物の名前を入力してください。');
+        return;
     }
+
+    if (name.length < minNameLength) {
+        alert(`名前は${minNameLength}文字以上で入力してください。`);
+        return;
+    }
+
+    if (dinos.some(dino => dino.name === name)) {
+        alert('同じ名前の生き物が既に存在します。');
+        return;
+    }
+
+    // Calculate position, ensuring it's within canvas bounds, considering the dino's radius
+    let x = random(dinoRadius, width - dinoRadius);
+    let y = random(dinoRadius, height - dinoRadius);
+
+    // Ensure the initial random position is somewhat centered if possible, then clamp
+    // This is a simple approach; more sophisticated placement could be added later.
+    const centerAreaFactor = 0.3; // Try to place within the central 30% of canvas
+    const centerX = width / 2;
+    const centerY = height / 2;
+    const rangeX = (width * centerAreaFactor) / 2;
+    const rangeY = (height * centerAreaFactor) / 2;
+
+    x = random(centerX - rangeX, centerX + rangeX);
+    y = random(centerY - rangeY, centerY + rangeY);
+
+    // Clamp values to be within canvas boundaries, accounting for radius
+    x = constrain(x, dinoRadius, width - dinoRadius);
+    y = constrain(y, dinoRadius, height - dinoRadius);
+
+
+    const newDino = new Dino(x, y, name);
+    dinos.push(newDino);
+    nameInput.value(''); // Clear the input field only on success
 }
 
 function draw() {
