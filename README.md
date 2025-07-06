@@ -46,3 +46,9 @@ A web application that allows children to create their own original lineage tree
         -   Implement functionality to save the tree as an image and to save the application state.
     6.  **Improve Design:** (Ongoing)
         -   Replace the basic circles and lines with illustration-based designs.
+
+## Demo
+
+You can try out the application at the following URL:
+
+[My Own Organism Lineage Maker](https://kyama17.github.io/open-phylogenetic-tree/)
